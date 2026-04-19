@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Startup & Tech Digest</title>
+  <meta name="description" content="A readable startup and tech digest built from selected sources.">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121934;
+      --panel: rgba(255,255,255,0.05);
+      --panel-strong: rgba(255,255,255,0.08);
+      --text: #eef2ff;
+      --muted: #aab4d6;
+      --line: rgba(255,255,255,0.10);
+      --accent: #8ab4ff;
+      --accent-2: #9ef0c7;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(138,180,255,0.15), transparent 35%),
+        radial-gradient(circle at top right, rgba(158,240,199,0.10), transparent 30%),
+        linear-gradient(180deg, #0b1020, #0d1327 55%, #0a0f1c);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    .hero {
+      padding: 32px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      color: var(--accent-2);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      max-width: 9ch;
+    }
+
+    .sub {
+      margin-top: 14px;
+      color: var(--muted);
+      max-width: 58ch;
+      font-size: 1.05rem;
+    }
+
+    .meta {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      font-size: 0.92rem;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .story-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .story {
+      display: block;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+    }
+
+    .story:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(138,180,255,0.35);
+    }
+
+    .story .source {
+      color: var(--accent-2);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .story h3 {
+      font-size: 1.05rem;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .story p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .source-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .source-card h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .source-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .source-card li a {
+      color: var(--muted);
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .grid, .columns { grid-template-columns: 1fr; }
+      .wrap { padding: 24px 14px 56px; }
+      .hero, .section { padding: 20px; border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Aodh Digest</div>
+      <h1>Startup &amp; Tech Digest</h1>
+      <p class="sub">A calmer, more readable briefing built from selected startup and tech sources. This first version is already much nicer on the eyes than a Telegram wall of links.</p>
+      <div class="meta">
+        <div class="pill">Sunday, 19 April</div>
+        <div class="pill">Sources: WIRED, Sifted, TechCrunch, GeekWire, The Verge, Engadget</div>
+        <div class="pill">Format: every 2 days</div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="section">
+        <h2>Today’s big signals</h2>
+        <div class="story-list">
+          <a class="story" href="https://techcrunch.com/2026/04/18/tesla-brings-its-robotaxi-service-to-dallas-and-houston/">
+            <div class="source">TechCrunch</div>
+            <h3>Tesla brings its robotaxi service to Dallas and Houston</h3>
+            <p>Autonomy, infrastructure, and product theatre are still very live themes.</p>
+          </a>
+          <a class="story" href="https://sifted.eu/articles/ai-startups-swallow-half-funding/">
+            <div class="source">Sifted</div>
+            <h3>AI startups swallow half the funding across European tech</h3>
+            <p>That tells you where attention, capital, and narrative gravity are still pooling.</p>
+          </a>
+          <a class="story" href="https://www.theverge.com/ai-artificial-intelligence/914672/the-ram-shortage-could-last-years">
+            <div class="source">The Verge</div>
+            <h3>The RAM shortage could last years</h3>
+            <p>Under-the-hood compute constraints are becoming product and market stories in their own right.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>In the air</h2>
+        <p class="note">AI is still the loudest force in the room, but today’s more interesting layer is infrastructure pressure. Funding, compute, and platform capability are all squeezing the same part of the system.</p>
+      </section>
+    </div>
+
+    <section class="section">
+      <h2>Best reads</h2>
+      <div class="story-list">
+        <a class="story" href="https://sifted.eu/articles/public-money-influx-europe-vc-scaleups-growth-problems/">
+          <div class="source">Sifted</div>
+          <h3>Nearly €80bn of public money is flooding into European VCs and startups. Is it what the market needs?</h3>
+          <p>A good broader piece if you want the startup and capital environment, not just device noise.</p>
+        </a>
+        <a class="story" href="https://www.geekwire.com/2026/seattle-mayor-floats-moratorium-on-data-centers-in-city-limits/">
+          <div class="source">GeekWire</div>
+          <h3>Seattle mayor floats moratorium on new data centers in city limits</h3>
+          <p>The infrastructure build-out behind the AI era is now visibly colliding with civic reality.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>By source</h2>
+      <div class="columns">
+        <div class="source-card">
+          <h3>WIRED</h3>
+          <ul>
+            <li><a href="https://www.wired.com/story/smart-home-curb-appeal/">The Best Smart Home Accessories to Boost Your Curb Appeal</a></li>
+            <li><a href="https://www.wired.com/story/how-to-clean-vinyl-records/">How to Clean Your Vinyl Records</a></li>
+          </ul>
+        </div>
+        <div class="source-card">
+          <h3>Sifted</h3>
+          <ul>
+            <li><a href="https://sifted.eu/articles/public-money-influx-europe-vc-scaleups-growth-problems/">Nearly €80bn of public money is flooding into European VCs and startups</a></li>
+            <li><a href="https://sifted.eu/articles/ai-startups-swallow-half-funding/">AI startups swallow half the funding across European tech</a></li>
+          </ul>
+        </div>
+        <div class="source-card">
+          <h3>TechCrunch</h3>
+          <ul>
+            <li><a href="https://techcrunch.com/2026/04/18/tesla-brings-its-robotaxi-service-to-dallas-and-houston/">Tesla brings its robotaxi service to Dallas and Houston</a></li>
+            <li><a href="https://techcrunch.com/2026/04/18/vc-ron-conway-says-he-has-a-rare-form-of-cancer/">VC Ron Conway says he has a rare form of cancer</a></li>
+          </ul>
+        </div>
+        <div class="source-card">
+          <h3>GeekWire</h3>
+          <ul>
+            <li><a href="https://www.geekwire.com/2026/physicists-3m-breakthrough-prize-muon-mysteries/">Physicists share the glory and the wealth after winning $3M for exploring muon mysteries</a></li>
+            <li><a href="https://www.geekwire.com/2026/seattle-mayor-floats-moratorium-on-data-centers-in-city-limits/">Seattle mayor floats moratorium on new data centers in city limits</a></li>
+          </ul>
+        </div>
+        <div class="source-card">
+          <h3>The Verge</h3>
+          <ul>
+            <li><a href="https://www.theverge.com/ai-artificial-intelligence/914672/the-ram-shortage-could-last-years">The RAM shortage could last years</a></li>
+            <li><a href="https://www.theverge.com/policy/914619/trump-administration-violated-first-amendment-ice-tracking">Judge rules Trump administration violated the First Amendment in fight against ICE-tracking</a></li>
+          </ul>
+        </div>
+        <div class="source-card">
+          <h3>Engadget</h3>
+          <ul>
+            <li><a href="https://www.engadget.com/gaming/snks-neo-geo-console-remake-works-with-original-cartridges-and-hdmi-194509442.html?src=rss">SNK's Neo Geo console remake works with original cartridges and HDMI</a></li>
+            <li><a href="https://www.engadget.com/apps/judge-sides-with-creators-of-banned-ice-trackers-who-allege-dhs-and-doj-violated-their-first-amendment-rights-191701801.html?src=rss">Judge sides with creators of banned ICE trackers who allege DHS and DOJ violated their First Amendment rights</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built for Brendan with OpenClaw. Next step: automate generation, deploy to GitHub Pages, and send a short Telegram link every second day.
+    </footer>
+  </main>
+</body>
+</html>
